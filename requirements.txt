@@ -1,1 +1,4 @@
-// requirements.txt - Placeholder
+fastapi
+uvicorn
+requests
+python-dotenv
