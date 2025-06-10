@@ -247,7 +247,9 @@ async def ai_test(req: ChatRequest):
             timestamp=datetime.utcnow().isoformat()
         ))
     return results
-
+@app.get("/healthz")
+async def healthz():
+    return {"status": "ok"}
 @app.get("/ai/monitor")
 def ai_monitor():
     logs = firestore_client.collection("ai_logs").order_by("timestamp", direction=firestore.Query.DESCENDING).limit(10).stream()
